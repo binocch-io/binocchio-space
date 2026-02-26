@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>binocchio space</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="menu-toggle" onclick="toggleSidebar()">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+    </div>
+
+    <nav class="sidebar" id="sidebar">
+        <div class="logo-area"><h2>MY LOGO</h2></div>
+<ul class="main-nav">
+    <li><a href="#" onclick="showSection('home-content')">Home</a></li>
+    <li class="dropdown">
+        <a href="#">Artworks ▾</a>
+        <ul class="submenu">
+            <li><a href="#" onclick="showSection('painting')">Painting</a></li>
+            <li><a href="#" onclick="showSection('fanart')">Fanart</a></li>
+        </ul>
+    </li>
+    <li><a href="#">Contact</a></li>
+</ul>
+    </nav>
+
+    <main class="main-content" id="home-content">
+        <h1>Selamat Datang</h1>
+        <p>Buka menu untuk melihat galeri.</p>
+    </main>
+
+    <section id="painting" class="main-content" style="display:none;">
+        <h1 style="margin-bottom: 50px;">My Paintings</h1>
+        
+        <div class="gallery-container">
+            <div class="gallery-item fade-item">
+                <img src="art1.jpg" alt="Art 1">
+                <p>Universal Vision</p>
+            </div>
+            <div class="gallery-item fade-item">
+                <img src="art2.jpg" alt="Art 2">
+                <p>Masked Journey</p>
+            </div>
+            <div class="gallery-item fade-item">
+                <img src="art3.jpg" alt="Art 3">
+                <p>Hidden Truth</p>
+            </div>
+            <div class="gallery-item fade-item">
+                <img src="art4.jpg" alt="Art 4">
+                <p>Eternal Balance</p>
+            </div>
+        </div>
+    </section>
+<section id="fanart" class="main-content" style="display:none;">
+    <h1 style="margin-bottom: 50px;">My Fanarts</h1>
+    
+    <div class="gallery-container">
+        <div class="gallery-item fade-item">
+            <img src="fanart1.jpg" alt="Fanart 1">
+            <p>Character Study 1</p>
+        </div>
+        <div class="gallery-item fade-item">
+            <img src="fanart2.jpg" alt="Fanart 2">
+            <p>Character Study 2</p>
+        </div>
+        <div class="gallery-item fade-item">
+            <img src="fanart3.jpg" alt="Fanart 3">
+            <p>Character Study 3</p>
+        </div>
+    </div>
+</section>
+<script>
+        // 1. Fungsi Sidebar
+        function toggleSidebar() {
+            document.getElementById('sidebar').classList.toggle('active');
+        }
+
+        // 2. Fungsi Pindah Halaman
+        function showSection(id) {
+            document.getElementById('home-content').style.display = 'none';
+            document.getElementById('painting').style.display = 'none';
+            document.getElementById('fanart').style.display = 'none';
+
+            document.getElementById(id).style.display = 'block';
+            
+            toggleSidebar();
+            handleScrollFade(); 
+        }
+
+        // 3. Fungsi Efek Pudar (Pastikan tertutup rapi)
+        function handleScrollFade() {
+            const items = document.querySelectorAll('.fade-item');
+            items.forEach(item => {
+                const rect = item.getBoundingClientRect();
+                if (rect.top < window.innerHeight - 100) {
+                    item.classList.add('visible');
+                } else {
+                    item.classList.remove('visible');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', handleScrollFade);
+        handleScrollFade(); 
+    </script>
+</body>
+</html>

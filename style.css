@@ -1,0 +1,139 @@
+/* --- RESET DASAR --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #F5F5F0; /* Warna Putih Tulang */
+    color: #333;
+    overflow-x: hidden;
+}
+
+/* --- TOMBOL GARIS TIGA (HAMBURGER) --- */
+.menu-toggle {
+    position: fixed;
+    top: 25px;
+    left: 25px;
+    width: 30px;
+    height: 20px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    z-index: 1001; /* Di atas sidebar */
+}
+
+/* Garis Tipis (diatur di height: 1.5px) */
+.line {
+    width: 100%;
+    height: 1.5px; 
+    background-color: #333;
+    transition: 0.3s;
+}
+
+/* --- SIDEBAR (PUTIH TULANG) --- */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -260px; /* Sembunyi ke kiri */
+    width: 260px;
+    height: 100vh;
+    background-color: #F5F5F0; /* Putih Tulang */
+    box-shadow: 2px 0 10px rgba(0,0,0,0.05); /* Bayangan sangat tipis */
+    transition: 0.4s ease;
+    z-index: 1000;
+    border-right: 1px solid #e0e0d5; /* Garis pembatas tipis */
+}
+
+/* Munculkan Sidebar */
+.sidebar.active {
+    left: 0;
+}
+
+/* --- AREA LOGO & NAVIGASI --- */
+.logo-area {
+    padding: 40px 20px;
+    text-align: center;
+    border-bottom: 1px solid #e0e0d5;
+}
+
+.main-nav {
+    list-style: none;
+    margin-top: 20px;
+}
+
+.main-nav li a {
+    display: block;
+    padding: 15px 30px;
+    color: #555;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.main-nav li a:hover {
+    background-color: #efefe5; /* Warna hover beige sedikit gelap */
+    color: #000;
+}
+
+/* Submenu Artworks */
+.submenu {
+    list-style: none;
+    background-color: #efefe5;
+    display: none;
+}
+
+.dropdown:hover .submenu {
+    display: block;
+}
+
+.submenu li a {
+    padding-left: 50px;
+    font-size: 14px;
+}
+
+/* --- KONTEN UTAMA --- */
+.main-content {
+    padding: 100px 20px;
+    text-align: center;
+    background-color: #F5F5F0; /* Putih Tulang */
+    min-height: 100vh;
+}
+
+/* --- GALERI VERTIKAL ELEGAN --- */
+.gallery-container {
+    display: flex;
+    flex-direction: column; /* Membuat satu baris ke bawah */
+    align-items: center;
+    gap: 100px; /* Jarak antar gambar yang jauh agar elegan */
+    padding: 20px;
+}
+
+.gallery-item {
+    max-width: 500px; /* Ukuran gambar tidak terlalu besar */
+    width: 100%;
+    opacity: 0; /* Awalnya tidak terlihat */
+    transform: translateY(30px); /* Awalnya agak ke bawah */
+    transition: all 0.8s ease-out; /* Durasi pudar */
+}
+
+/* Saat gambar masuk layar, class ini akan aktif lewat JavaScript */
+.gallery-item.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1); /* Bayangan elegan */
+}
+
+.gallery-item p {
+    margin-top: 20px;
+    font-style: italic;
+    color: #666;
+}
