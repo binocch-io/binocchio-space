@@ -385,3 +385,25 @@ body {
     padding: 100px 20px;
     box-shadow: 0 -20px 40px rgba(0,0,0,0.1);
 }
+
+/* --- PERBAIKAN RESPONSIVE HP --- */
+@media (max-width: 768px) {
+    .hero-container {
+        height: auto; /* Biarkan tinggi menyesuaikan konten di HP */
+        position: relative; /* Matikan sticky jika di HP agar tidak bug */
+        top: 0;
+    }
+
+    .parallax-bg img {
+        height: 60vh; /* Perkecil tinggi gambar agar tidak terlalu panjang di HP */
+    }
+
+    .hero-text h1 {
+        font-size: 1.5rem; /* Perkecil tulisan BINOCCHIO agar tidak memenuhi layar */
+        letter-spacing: 8px;
+    }
+
+    .white-content-section {
+        padding: 50px 20px;
+    }
+}

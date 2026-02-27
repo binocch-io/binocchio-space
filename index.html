@@ -129,56 +129,58 @@
         </div>
     </section>
 
-    <script>
-        function toggleSidebar() {
-            document.getElementById('sidebar').classList.toggle('active');
+<script>
+    function toggleSidebar() {
+        document.getElementById('sidebar').classList.toggle('active');
+    }
+
+    function showSection(id) {
+        // Sembunyikan semua section
+        const sections = ['home-content', 'painting', 'fanart', 'commission'];
+        sections.forEach(sec => document.getElementById(sec).style.display = 'none');
+
+        // Tampilkan yang diklik
+        const target = document.getElementById(id);
+        if (target) {
+            target.style.display = 'block';
         }
+        
+        window.scrollTo(0, 0);
 
-        function showSection(id) {
-            // Sembunyikan semua konten
-            document.getElementById('home-content').style.display = 'none';
-            document.getElementById('painting').style.display = 'none';
-            document.getElementById('fanart').style.display = 'none';
-            document.getElementById('commission').style.display = 'none';
+        // Tutup sidebar
+        const sidebar = document.getElementById('sidebar');
+        if(sidebar.classList.contains('active')) toggleSidebar();
 
-            // Tampilkan yang dipilih
-            const target = document.getElementById(id);
-            if (target) {
-                target.style.display = 'block';
-            }
-            
-            window.scrollTo(0, 0);
-            const sidebar = document.getElementById('sidebar');
-            if(sidebar.classList.contains('active')) {
-                toggleSidebar();
-            }
-            handleScrollFade(); 
-        }
+        // Pancing ulang pengintai gambar
+        initObserver();
+    }
 
-        function handleScrollFade() {
-            // Efek gambar muncul pelan
-            const items = document.querySelectorAll('.fade-item');
-            items.forEach(item => {
-                const rect = item.getBoundingClientRect();
-                if (rect.top < window.innerHeight - 100) {
-                    item.classList.add('visible');
+    // FUNGSI PENGINTAI GAMBAR (OBSERVER)
+    function initObserver() {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
                 }
             });
+        }, { threshold: 0.1 }); // Muncul kalau 10% gambar sudah masuk layar
 
-            // Efek kotak judul menghilang
-            const boxes = document.querySelectorAll('.purple-box');
-            boxes.forEach(box => {
-                if (window.scrollY > 100) {
-                    box.classList.add('fade-out');
-                } else {
-                    box.classList.remove('fade-out');
-                }
-            });
-        }
+        document.querySelectorAll('.fade-item').forEach(item => {
+            observer.observe(item);
+        });
+    }
 
-        window.addEventListener('scroll', handleScrollFade);
-        // Jalankan sekali saat start
-        handleScrollFade();
-    </script>
+    // Jalankan saat pertama kali web dibuka
+    window.addEventListener('DOMContentLoaded', initObserver);
+
+    // Efek kotak ungu (tetap pakai scroll biasa)
+    window.addEventListener('scroll', () => {
+        const boxes = document.querySelectorAll('.purple-box');
+        boxes.forEach(box => {
+            if (window.scrollY > 50) box.classList.add('fade-out');
+            else box.classList.remove('fade-out');
+        });
+    });
+</script>
 </body>
 </html>
