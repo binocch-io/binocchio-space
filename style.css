@@ -260,27 +260,45 @@ body {
     font-size: 14px;
 }
 
-/* --- FIX FINAL HP: MEPET ATAS & GAMBAR UTUH --- */
+/* --- PERBAIKAN TOTAL: NO KOTAK BIRU, GAMBAR LEBAR, MEPET ATAS --- */
 @media (max-width: 768px) {
+    /* 1. Judul Halaman (Hapus Kotak Biru/Abu yang Mengganggu) */
+    .header-container {
+        height: auto !important;
+        margin-top: 80px !important; /* Jarak pas di bawah header */
+        margin-bottom: 20px !important;
+        background: none !important; /* BUANG LATAR BELAKANG */
+    }
+
+    .purple-box {
+        display: none !important; /* HAPUS KOTAK BIRU/ABU PENYEBAB JELEK */
+    }
+
+    .elegant-title {
+        font-size: 1.1rem !important;
+        letter-spacing: 8px !important;
+        color: #4A5568 !important;
+        text-align: center !important;
+        display: block !important;
+    }
+
+    /* 2. Gambar Hero (Binocchio) - Biar Lebar & Utuh */
     .hero-container {
         height: auto !important;
-        min-height: unset !important;
-        margin-top: 70px !important; /* Pas di bawah garis header */
-        padding: 0 !important;
+        margin-top: 70px !important;
         display: block !important;
     }
 
     .parallax-bg {
         position: relative !important;
         width: 100% !important;
-        height: auto !important;
     }
 
     .parallax-bg img {
-        width: 100% !important;
+        width: 100% !important; /* GAMBAR FULL LEBAR LAYAR */
         height: auto !important;
+        object-fit: cover !important; /* Biar penuh tapi nggak kepotong parah */
         display: block !important;
-        object-fit: contain !important; /* Supaya gambar utuh terlihat semua */
     }
 
     .hero-text {
@@ -288,6 +306,16 @@ body {
         top: 50% !important;
         left: 50% !important;
         transform: translate(-50%, -50%) !important;
-        width: 100% !important;
+    }
+
+    /* 3. Rapikan Jarak Konten Bawah */
+    .white-content-section {
+        padding: 30px 20px !important;
+        margin-top: 0 !important;
+    }
+
+    .contact-intro {
+        margin-top: 20px !important;
+        margin-bottom: 10px !important;
     }
 }
