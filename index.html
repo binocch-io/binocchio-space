@@ -156,19 +156,26 @@
     }
 
     // FUNGSI PENGINTAI GAMBAR (OBSERVER)
-    function initObserver() {
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, { threshold: 0.1 }); // Muncul kalau 10% gambar sudah masuk layar
-
-        document.querySelectorAll('.fade-item').forEach(item => {
-            observer.observe(item);
+function initObserver() {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Saat gambar masuk layar
+                entry.target.classList.add('visible');
+            } else {
+                // SAAT GAMBAR KELUAR LAYAR (Hapus ini jika ingin sekali saja)
+                entry.target.classList.remove('visible');
+            }
         });
-    }
+    }, { 
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px" // Memberi jeda sedikit agar tidak langsung hilang
+    });
+
+    document.querySelectorAll('.fade-item').forEach(item => {
+        observer.observe(item);
+    });
+}
 
     // Jalankan saat pertama kali web dibuka
     window.addEventListener('DOMContentLoaded', initObserver);
