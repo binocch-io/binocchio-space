@@ -3,110 +3,182 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>binocchio space</title>
+    <title>binocchio's space</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <header class="main-header">
+        <div class="menu-btn" onclick="toggleSidebar()">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+        <div class="header-logo">
+            <h1>my space</h1>
+        </div>
+        <div class="header-spacer"></div>
+    </header>
 
-    <div class="menu-toggle" onclick="toggleSidebar()">
-        <div class="line"></div>
-        <div class="line"></div>
-        <div class="line"></div>
-    </div>
-
-    <nav class="sidebar" id="sidebar">
-        <div class="logo-area"><h2>MY LOGO</h2></div>
-<ul class="main-nav">
-    <li><a href="#" onclick="showSection('home-content')">Home</a></li>
-    <li class="dropdown">
-        <a href="#">Artworks ▾</a>
-        <ul class="submenu">
-            <li><a href="#" onclick="showSection('painting')">Painting</a></li>
-            <li><a href="#" onclick="showSection('fanart')">Fanart</a></li>
+    <nav id="sidebar" class="sidebar">
+        <ul>
+            <li><a href="#" onclick="showSection('home-content')">Home</a></li>
+            <li class="dropdown">
+                <a href="#">Artworks ▼</a>
+                <ul class="submenu">
+                    <li><a href="#" onclick="showSection('painting')">Paintings</a></li>
+                    <li><a href="#" onclick="showSection('fanart')">Drawings</a></li>
+                </ul>
+            </li>
+            <li><a href="#" onclick="showSection('commission')">Commission info</a></li>
         </ul>
-    </li>
-    <li><a href="#">Contact</a></li>
-</ul>
     </nav>
 
     <main class="main-content" id="home-content">
-        <h1>Selamat Datang</h1>
-        <p>Buka menu untuk melihat galeri.</p>
+        <div class="hero-container">
+            <div class="parallax-bg">
+                <img src="landscape1.jpg" alt="Home Artwork">
+            </div>
+            <div class="hero-text">
+                <h1>binocchio</h1>
+            </div>
+        </div>
+
+        <div class="white-content-section">
+            <div class="content-wrapper">
+                <h2 class="elegant-header">Welcome to my space</h2>
+                <p>Scroll down to explore my artworks and projects.</p>
+                <div style="height: 60vh;"></div> </div>
+        </div>
     </main>
 
     <section id="painting" class="main-content" style="display:none;">
-        <h1 style="margin-bottom: 50px;">My Paintings</h1>
-        
+        <div class="header-container">
+            <div class="purple-box"></div>
+            <h1 class="elegant-title">Paintings</h1>
+        </div>
         <div class="gallery-container">
             <div class="gallery-item fade-item">
-                <img src="art1.jpg" alt="Art 1">
-                <p>Universal Vision</p>
+                <img src="art0.jpg" alt="Art 0"><p>Beyond Me</p>
             </div>
             <div class="gallery-item fade-item">
-                <img src="art2.jpg" alt="Art 2">
-                <p>Masked Journey</p>
+                <img src="art1.jpg" alt="Art 1"><p>Universal Vision</p>
             </div>
             <div class="gallery-item fade-item">
-                <img src="art3.jpg" alt="Art 3">
-                <p>Hidden Truth</p>
+                <img src="art2.jpg" alt="Art 2"><p>Masked Journey</p>
             </div>
             <div class="gallery-item fade-item">
-                <img src="art4.jpg" alt="Art 4">
-                <p>Eternal Balance</p>
+                <img src="art3.jpg" alt="Art 3"><p>Hidden Truth</p>
+            </div>
+            <div class="gallery-item fade-item">
+                <img src="art4.jpg" alt="Art 4"><p>Eternal Balance</p>
             </div>
         </div>
     </section>
-<section id="fanart" class="main-content" style="display:none;">
-    <h1 style="margin-bottom: 50px;">My Fanarts</h1>
-    
-    <div class="gallery-container">
-        <div class="gallery-item fade-item">
-            <img src="fanart1.jpg" alt="Fanart 1">
-            <p>Character Study 1</p>
+
+    <section id="fanart" class="main-content" style="display:none;">
+        <div class="header-container">
+            <div class="purple-box"></div>
+            <h1 class="elegant-title split-title">
+                <span>fan art</span>
+                <span class="dot">•</span>
+                <span>portrait</span>
+                <span class="dot">•</span>
+                <span>study</span>
+            </h1>
         </div>
-        <div class="gallery-item fade-item">
-            <img src="fanart2.jpg" alt="Fanart 2">
-            <p>Character Study 2</p>
+        <div class="gallery-container">
+            <div class="gallery-item fade-item">
+                <img src="fanart1.jpg" alt="Fanart 1"><p>Character Study 1</p>
+            </div>
+            <div class="gallery-item fade-item">
+                <img src="fanart2.jpg" alt="Fanart 2"><p>Character Study 2</p>
+            </div>
+            <div class="gallery-item fade-item">
+                <img src="fanart3.jpg" alt="Fanart 3"><p>Character Study 3</p>
+            </div>
+            <div class="gallery-item fade-item">
+                <img src="fanart4.jpg" alt="Fanart 4"><p>Character Study 4</p>
+            </div>
+            <div class="gallery-item fade-item">
+                <img src="repro1.jpg" alt="repro 1"><p>Character Study 5</p>
+            </div>
+            <div class="gallery-item fade-item">
+                <img src="repro2.jpg" alt="repro 2"><p>Character Study 6</p>
+            </div>
         </div>
-        <div class="gallery-item fade-item">
-            <img src="fanart3.jpg" alt="Fanart 3">
-            <p>Character Study 3</p>
+    </section>
+
+    <section id="commission" class="main-content" style="display:none;">
+        <h1 class="elegant-header">contact</h1>
+        <div class="contact-card-container fade-item">
+            <p class="contact-intro">Feel free to reach out through any of these platforms:</p>
+            <div class="contact-details-box">
+                <div class="contact-row">
+                    <span class="contact-label">Email</span>
+                    <a href="mailto:obinayu@gmail.com" class="contact-value">obinayu@gmail.com</a>
+                </div>
+                <div class="contact-row">
+                    <span class="contact-label">Whatsapp</span>
+                    <a href="https://wa.me/6285604761745" target="_blank" class="contact-value">+6285604761745</a>
+                </div>
+                <div class="contact-row">
+                    <span class="contact-label">Tiktok</span>
+                    <a href="https://www.tiktok.com/@binochhioo" target="_blank" class="contact-value">@binochhioo</a>
+                </div>
+            </div>
         </div>
-    </div>
-</section>
-<script>
-        // 1. Fungsi Sidebar
+    </section>
+
+    <script>
         function toggleSidebar() {
             document.getElementById('sidebar').classList.toggle('active');
         }
 
-        // 2. Fungsi Pindah Halaman
         function showSection(id) {
+            // Sembunyikan semua konten
             document.getElementById('home-content').style.display = 'none';
             document.getElementById('painting').style.display = 'none';
             document.getElementById('fanart').style.display = 'none';
+            document.getElementById('commission').style.display = 'none';
 
-            document.getElementById(id).style.display = 'block';
+            // Tampilkan yang dipilih
+            const target = document.getElementById(id);
+            if (target) {
+                target.style.display = 'block';
+            }
             
-            toggleSidebar();
+            window.scrollTo(0, 0);
+            const sidebar = document.getElementById('sidebar');
+            if(sidebar.classList.contains('active')) {
+                toggleSidebar();
+            }
             handleScrollFade(); 
         }
 
-        // 3. Fungsi Efek Pudar (Pastikan tertutup rapi)
         function handleScrollFade() {
+            // Efek gambar muncul pelan
             const items = document.querySelectorAll('.fade-item');
             items.forEach(item => {
                 const rect = item.getBoundingClientRect();
                 if (rect.top < window.innerHeight - 100) {
                     item.classList.add('visible');
+                }
+            });
+
+            // Efek kotak judul menghilang
+            const boxes = document.querySelectorAll('.purple-box');
+            boxes.forEach(box => {
+                if (window.scrollY > 100) {
+                    box.classList.add('fade-out');
                 } else {
-                    item.classList.remove('visible');
+                    box.classList.remove('fade-out');
                 }
             });
         }
 
         window.addEventListener('scroll', handleScrollFade);
-        handleScrollFade(); 
+        // Jalankan sekali saat start
+        handleScrollFade();
     </script>
 </body>
 </html>
