@@ -284,44 +284,74 @@ body {
 }
 
 /* --- PERBAIKAN TOTAL: NO KOTAK BIRU, GAMBAR LEBAR, MEPET ATAS --- */
-/* --- PERBAIKAN UKURAN TEKS HP --- */
+/* --- PERBAIKAN TOTAL: NO KOTAK BIRU, GAMBAR LEBAR, TEKS RAPI --- */
 @media (max-width: 768px) {
-    
-    /* 1. Mengecilkan tulisan Hero "Ubah dinding kosongmu..." */
-    .hero-text h1 {
-        font-size: 1.1rem !important; /* Ukuran font lebih proporsional di HP */
-        letter-spacing: 4px !important; /* Rapatkan jarak dari 15px ke 4px agar muat */
-        line-height: 1.6 !important; /* Beri jarak antar baris supaya tidak tumpang tindih */
-        width: 85vw !important; /* Supaya teks tidak menabrak pinggir layar */
-        text-align: center;
-        margin: 0 auto;
+    /* 1. Judul Halaman */
+    .header-container {
+        height: auto !important;
+        margin-top: 80px !important; 
+        margin-bottom: 20px !important;
+        background: none !important; 
     }
 
-    /* 2. Menyesuaikan posisi container Hero di HP */
-    .hero-container {
-        height: 60vh !important; /* Tidak perlu setinggi laptop agar tidak menutupi seluruh layar */
-        min-height: 350px;
+    .purple-box {
+        display: none !important; 
     }
 
-    /* 3. Menyesuaikan teks "Welcome to my space" */
-    .elegant-header {
-        font-size: 1.2rem !important;
-        letter-spacing: 5px !important;
-    }
-
-    /* 4. Merapikan Judul Section (Paintings, Contact, dll) */
     .elegant-title {
-        font-size: 1rem !important;
-        letter-spacing: 6px !important;
+        font-size: 1.1rem !important;
+        letter-spacing: 8px !important;
+        color: #4A5568 !important;
+        text-align: center !important;
+        display: block !important;
     }
 
-    /* 5. Mengatur Galeri agar gambar pas di layar HP */
-    .gallery-container {
-        gap: 60px !important; /* Jarak antar gambar diperkecil agar tidak terlalu jauh saat scroll */
-        padding-bottom: 50px !important;
+    /* 2. Gambar Hero (Binocchio) - Tetap Lebar & Utuh */
+    .hero-container {
+        height: auto !important;
+        margin-top: 70px !important;
+        display: block !important;
     }
 
-    .gallery-item {
-        max-width: 90% !important; /* Gambar melebar mengikuti layar ponsel */
+    .parallax-bg {
+        position: relative !important;
+        width: 100% !important;
+    }
+
+    .parallax-bg img {
+        width: 100% !important; 
+        height: auto !important;
+        object-fit: cover !important; 
+        display: block !important;
+    }
+
+    /* --- INI PERBAIKAN TEKS JUMBO NYA --- */
+    .hero-text {
+        position: absolute !important;
+        top: 50% !important;
+        left: 50% !important;
+        transform: translate(-50%, -50%) !important;
+        width: 100%; /* Pastikan teks punya ruang */
+        padding: 0 20px;
+    }
+
+    .hero-text h1 {
+        font-size: 14px !important; /* Font diperkecil agar pas di HP */
+        letter-spacing: 3px !important; /* Jarak huruf dirapatkan dari 15px ke 3px */
+        line-height: 1.6 !important; /* Jarak baris agar tidak bertumpuk */
+        font-weight: 300;
+        text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+    }
+    /* ------------------------------------ */
+
+    /* 3. Rapikan Jarak Konten Bawah */
+    .white-content-section {
+        padding: 30px 20px !important;
+        margin-top: 0 !important;
+    }
+
+    .contact-intro {
+        margin-top: 20px !important;
+        margin-bottom: 10px !important;
     }
 }
