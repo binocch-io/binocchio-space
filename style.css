@@ -415,78 +415,21 @@ body {
 
 /* --- 10. RESPONSIVE MOBILE (ANDROID FIX) --- */
 @media (max-width: 768px) {
-    /* 1. Fix Background Hero (Gak Zoom lagi) */
     .parallax-bg {
-        position: absolute !important; /* Ubah ke absolute biar gak nge-zoom */
+        position: absolute !important; /* WAJIB ABSOLUTE BIAR GAK ZOOM */
+        top: 0 !important;
         height: 100% !important;
         background-attachment: scroll !important;
     }
     
-    .parallax-bg img {
-        object-fit: cover;
-        object-position: center;
-    }
-
     .hero-container {
-        height: 70vh !important; /* Pendekkan sedikit area hero */
+        height: 70vh !important;
+        overflow: hidden; /* Biar gambar gak luber ke luar area hero */
     }
 
-    .hero-text h1 {
-        font-size: 1rem !important; /* Kecilkan teks biar gak nutupin gambar */
-        letter-spacing: 5px !important;
-    }
-
-    /* 2. Fix Jarak Antar Section (Biar gak plong) */
-    .white-content-section {
-        padding: 50px 20px !important; /* Pangkas dari 100px ke 50px */
-    }
-
-    /* 3. Fix Layout About & Pengalaman (Jadi satu kolom) */
-    .about-container, .experience-container {
-        flex-direction: column !important;
-        margin-bottom: 50px !important;
-        gap: 30px !important;
-    }
-
-    .profile-circle {
-        width: 180px !important;
-        height: 180px !important;
-        min-width: 180px;
-        min-height: 180px;
-    }
-
-    .about-text-column {
-        text-align: center;
-    }
-
-    /* 4. Fix Jarak Judul Karya ke Gambar (Gouache & Minyak) */
-    #akrilik, #cat-minyak, #gouache {
-        padding-top: 60px !important; /* Pangkas jarak atas judul */
-    }
-
-    .gallery-grid {
-        grid-template-columns: 1fr !important; /* Satu baris satu karya */
-        gap: 30px !important;
-        padding: 20px 15px !important;
-    }
-
-    .gallery-item img {
-        height: auto !important; /* Biar gambar landscape gak kepotong */
-        max-height: 350px;
-    }
-
-    .gallery-item p {
-        margin-top: 10px !important; /* Dekatkan teks ke gambar */
-        font-size: 1rem !important;
-    }
-
-    /* 5. Fix Kontak Box di HP */
-    .contact-details-box {
-        padding: 20px !important;
-    }
-    
-    .contact-row {
-        flex-direction: column;
-        gap: 5px;
+    .parallax-bg img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
     }
 }
