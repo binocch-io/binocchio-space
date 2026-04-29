@@ -1,357 +1,416 @@
 /* --- 1. RESET & DASAR --- */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
+* { margin: 0; padding: 0; box-sizing: border-box; }
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #F5F5F0; /* Putih Tulang */
-    color: #333;
-    overflow-x: hidden;
+    background-color: #F5F5F0; color: #333; overflow-x: hidden;
 }
 
-/* --- 2. HEADER NAVIGASI --- */
+/* --- 2. HEADER --- */
 .main-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 70px;
-    background-color: #fdfdfc;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 30px;
-    z-index: 1000;
-    border-bottom: 1px solid #e0e0d5;
+    position: fixed; top: 0; left: 0; width: 100%; height: 70px;
+    background-color: #fdfdfc; display: flex; justify-content: space-between;
+    align-items: center; padding: 0 30px; z-index: 1000; border-bottom: 1px solid #e0e0d5;
 }
-
-.menu-btn {
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-}
-
-.bar {
-    width: 25px;
-    height: 2px;
-    background-color: #333;
-    transition: 0.3s;
-}
-
-.header-logo h1 {
-    font-weight: 300;
-    letter-spacing: 8px;
-    font-size: 1.2rem;
-    text-transform: lowercase;
-    color: #333;
-}
-
-.header-spacer { width: 25px; }
+.menu-btn { cursor: pointer; display: flex; flex-direction: column; gap: 5px; }
+.bar { width: 25px; height: 2px; background-color: #333; transition: 0.3s; }
+.header-logo h1 { font-weight: 300; letter-spacing: 8px; font-size: 1.2rem; text-transform: lowercase; }
 
 /* --- 3. SIDEBAR --- */
 .sidebar {
-    position: fixed;
-    left: -250px;
-    top: 70px;
-    width: 250px;
-    height: calc(100vh - 70px);
-    background-color: #fdfdfc;
-    transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    z-index: 999;
-    padding-top: 20px;
-    border-right: 1px solid #e0e0d5;
+    position: fixed; left: -250px; top: 70px; width: 250px; height: calc(100vh - 70px);
+    background-color: #fdfdfc; transition: 0.4s; z-index: 999; padding-top: 20px; border-right: 1px solid #e0e0d5;
 }
-
 .sidebar.active { left: 0; }
+.sidebar ul { list-style: none; }
+/* --- UPDATE UKURAN TEKS SIDEBAR --- */
 
-.sidebar ul { list-style: none; padding: 0; }
 
-.sidebar ul li a {
-    display: block;
-    padding: 15px 30px;
-    color: #555;
-    text-decoration: none;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    font-size: 12px;
+/* --- FIX SIDEBAR: TEKS BESAR + GARIS + SUBMENU SEMBUNYI --- */
+.sidebar ul li a { 
+    display: block; 
+    padding: 20px 30px; 
+    color: #555; 
+    text-decoration: none; 
+    text-transform: uppercase; 
+    font-size: 14px; 
+    font-weight: 600; 
+    letter-spacing: 3px; 
     transition: 0.3s;
+    /* Garis pemisah antar menu utama */
+    border-bottom: 1px solid #EADDFF; 
 }
 
-.sidebar ul li a:hover {
-    background-color: #efefe5;
-    padding-left: 40px;
+/* Sembunyikan kembali sub-menu */
+.submenu { 
+    display: none; 
+    background-color: #F8F4FF; 
+    list-style: none;
 }
 
-.submenu {
-    background-color: #efefe5;
-    display: none;
+/* Sub-menu hanya muncul saat menu 'Karya' di-hover */
+.dropdown:hover .submenu { 
+    display: block; 
 }
 
-.dropdown:hover .submenu { display: block; }
-
-/* --- 4. KONTEN UTAMA --- */
-.main-content {
-    padding-top: 100px;
-    min-height: 100vh;
+/* Styling teks di dalam sub-menu biar beda dikit */
+.submenu li a {
+    font-size: 12px;
+    padding: 15px 30px 15px 50px; /* Lebih menjorok ke dalam */
+    text-transform: uppercase;
+    color: #777;
+    border-bottom: 1px solid #F0E6EF;
 }
 
-/* --- 5. PARALLAX HOME --- */
-#home-content { padding-top: 0; }
+/* Hilangkan garis di item paling terakhir banget biar bersih */
+.sidebar ul li:last-child a, 
+.submenu li:last-child a {
+    border-bottom: none;
+}
 
-.hero-container {
-    position: sticky;
+/* --- 4. SECTIONS & PARALLAX (VERSI FIX: TIDAK ZOOM, TEKS DIAM, BISA TERTUTUP) --- */
+.main-content { min-height: 100vh; display: none; width: 100%; }
+#home-content { display: block; }
+
+.hero-container { 
+    position: relative; 
+    width: 100%; 
+    height: calc(100vh - 70px); 
+    margin-top: 70px;
+    background-color: #000; /* Warna dasar jika gambar loading */
+    overflow: visible; /* Biar section di bawahnya bisa naik menutupi */
+}
+
+/* Gambar dibuat fixed tapi dibatasi hanya di area hero */
+.parallax-bg {
+    position: fixed;
     top: 70px;
+    left: 0;
     width: 100%;
     height: calc(100vh - 70px);
-    z-index: 1;
-    overflow: hidden;
+    z-index: 1; /* Paling belakang */
 }
 
-.parallax-bg {
-    position: absolute;
-    top: 0;
-    left: 0;
+.parallax-bg img {
     width: 100%;
     height: 100%;
-    z-index: 1; /* Pastikan ini di bawah teks */
+    object-fit: cover; /* Menjamin tidak ada zoom aneh, gambar pas di layar */
 }
 
-/* Tambahkan aturan baru ini di bawah .parallax-bg */
-.parallax-bg:after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* NAIK KE 0.5 BIAR LEBIH CAKEP */
-    z-index: 2;
-}
-
-/* Pastikan teks berada di atas overlay */
-.hero-text {
-    position: relative;
-    z-index: 10; /* Beri angka tinggi agar teks paling atas */
-    text-align: center;
-    color: white; /* Pastikan warna teks putih agar kontras */
-}
-
-.hero-text {
-    position: absolute;
-    top: 50%; left: 50%;
+.hero-text { 
+    position: fixed; /* Teks juga diam di tempat */
+    top: 50%;
+    left: 50%;
     transform: translate(-50%, -50%);
-    z-index: 2;
+    z-index: 2; /* Di depan gambar, tapi di belakang section About */
     text-align: center;
+    width: 80%;
+    pointer-events: none;
 }
 
-.hero-text h1 {
-    color: white;
-    font-weight: 300;
-    letter-spacing: 15px;
-    text-transform: uppercase;
-    text-shadow: 0 4px 10px rgba(0,0,0,0.3);
+.hero-text h1 { 
+    color: white; 
+    font-weight: 300; 
+    letter-spacing: 10px; 
+    text-transform: uppercase; 
+    text-shadow: 2px 2px 15px rgba(0,0,0,0.6); 
+    font-size: 1.5rem; 
 }
 
-.white-content-section {
-    position: relative;
-    background-color: #F5F5F0;
-    z-index: 5;
+/* --- 5. ABOUT & PENGALAMAN (LAYOUT DUA KOLOM) --- */
+.white-content-section { 
+    position: relative; 
+    z-index: 5; 
+    background-color: #FFF0F5; 
     padding: 100px 20px;
-    box-shadow: 0 -20px 40px rgba(0,0,0,0.1);
-    text-align: center;
+    box-shadow: 0 -10px 30px rgba(0,0,0,0.2);
 }
 
-/* Ganti bagian ini di CSS kamu */
-.header-container {
-    position: relative;
+.about-container { 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    max-width: 1000px; 
+    margin: 0 auto 80px auto; /* Margin bawah untuk jarak ke seksi pengalaman */
+    gap: 60px; 
+    flex-wrap: wrap; 
+}
+
+/* --- 5. ABOUT & PENGALAMAN --- */
+.about-container, .experience-container { 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    max-width: 1000px; 
+    margin: 0 auto 120px auto; /* Jarak 120px ke bawah agar tidak dempet */
+    gap: 60px; 
+    flex-wrap: wrap; 
+}
+
+/* Membalik urutan baris kedua: Foto Kanan, Teks Kiri */
+.experience-container { 
+    flex-direction: row-reverse; 
+}
+
+.profile-circle { 
+    width: 250px !important; 
+    height: 250px !important; 
+    min-width: 250px;
+    object-fit: cover; 
+    border-radius: 50%; 
+    border: 6px solid white; 
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.about-text-column { 
+    flex: 1; 
+    min-width: 300px; 
+}
+
+/* Seksi Pengalaman Baru */
+.experience-container {
     display: flex;
+    flex-direction: row-reverse; /* Ini kunci agar foto kedua ada di kanan */
+    align-items: center;
     justify-content: center;
-    align-items: center;
-    height: 300px; /* Diperpendek biar nggak makan tempat */
-    margin-bottom: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+    gap: 60px;
+    flex-wrap: wrap;
 }
 
-.purple-box {
-    position: absolute;
-    width: 65%;
-    height: 180px;
-    background-color: #E2E8F0;
-    z-index: 1;
+.profile-circle { 
+    width: 250px !important; 
+    height: 250px !important; 
+    min-width: 250px;
+    min-height: 250px;
+    object-fit: cover; 
+    border-radius: 50%; 
+    border: 6px solid white; 
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transform: none !important; 
 }
 
-.elegant-title {
-    font-weight: 300;
-    letter-spacing: 12px;
-    text-transform: uppercase;
-    color: #4A5568;
-    z-index: 2;
-    margin: 0;
-    text-align: center;
+.about-text-column { 
+    flex: 1; 
+    min-width: 300px; 
 }
 
-/* --- 7. GALERI & EFEK PUDAR (FADE) --- */
-.gallery-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 120px; /* Jarak antar gambar */
-    padding: 20px 20px 100px 20px;
+.description-text { 
+    line-height: 1.8; 
+    color: #555; 
+    text-align: justify; 
 }
 
-.gallery-item {
-    max-width: 550px;
-    width: 100%;
-    text-align: center;
+.elegant-header { 
+    font-family: 'Amiri', serif; 
+    margin-bottom: 20px; 
+    font-size: 1.8rem; 
+}
+
+/* --- 6. GALERI (VERSI FINAL - TOTAL BERSIH TANPA BINGKAI) --- */
+#akrilik, #cat-minyak, #gouache { 
+    padding-top: 100px; 
+    background-color: #FFF0F5; 
+    position: relative; 
+    z-index: 10; 
+}
+
+.gallery-grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 50px; /* Jarak antar lukisan diperlebar biar lega */
+    max-width: 1200px; 
+    margin: 0 auto; 
+    padding: 40px 20px; 
+}
+
+.gallery-item { 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    text-align: center; 
 }
 
 .gallery-item img {
-    width: 100%;
-    height: auto;
-    border-radius: 4px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    width: 100%; 
+    height: 400px; 
+    object-fit: contain; 
+    cursor: pointer; 
+    transition: 0.3s;
+
+    /* INI KUNCINYA UNTUK HAPUS BINGKAI PUTIH */
+    background: transparent !important; 
+    padding: 0 !important; 
+    border: none !important;
+    box-shadow: none !important;
+}
+/* Efek melayang halus saat disentuh kursor */
+.gallery-item img:hover { 
+    transform: translateY(-10px); /* Melayang sedikit ke atas */
 }
 
-.gallery-item p {
-    margin-top: 25px;
-    font-style: italic;
-    color: #888;
+.gallery-item p { 
+    margin-top: 25px; 
+    font-family: 'Amiri', serif; 
+    font-weight: 700; 
+    color: #4A5568; 
+    font-size: 1.1rem; 
     letter-spacing: 1px;
 }
 
-/* KODE FADE UTAMA */
-.fade-item {
-    opacity: 0;
-    transform: translateY(40px);
-    transition: opacity 1.2s ease-out, transform 1.2s ease-out;
+/* --- 7. KONTAK (VERSI ESTETIK KEMBALI) --- */
+#kontak-section { 
+    padding: 120px 20px; 
+    background-color: #FFF0F5; 
 }
 
-.fade-item.visible {
-    opacity: 1;
-    transform: translateY(0);
+.contact-card-container { 
+    max-width: 600px; 
+    margin: 0 auto; 
+    text-align: center; 
 }
 
-/* Ganti bagian ini di CSS kamu */
-.contact-card-container {
-    max-width: 550px;
-    margin: 0 auto; /* Ini yang bikin dia ke tengah */
-    padding: 0 20px 100px 20px;
-    text-align: center;
-}
-
-/* Tulisan feel free nya */
 .contact-intro {
-    font-size: 14px;
-    color: #888;
-    margin-top: 40px;    /* Memberi jarak yang cukup dari tulisan CONTACT */
-    margin-bottom: 15px; /* Mendekatkan tulisan ini ke tabel di bawahnya */
+    font-family: 'Amiri', serif;
     font-style: italic;
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 30px;
     letter-spacing: 1px;
-    text-align: center;
 }
 
-.contact-details-box {
-    background: white;
-    padding: 30px;
-    border: 1px solid #e0e0d5;
-    border-radius: 4px;
+.contact-details-box { 
+    background: white; 
+    padding: 40px; 
+    border-radius: 15px; 
+    border: none;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.05); /* Shadow halus banget */
+    margin-top: 20px; 
 }
 
-.contact-row {
-    display: flex;
-    justify-content: space-between; /* Kiri label, kanan isi */
-    padding: 18px 0;
-    border-bottom: 1px solid #f0f0eb;
+.contact-row { 
+    display: flex; 
+    justify-content: space-between; 
     align-items: center;
+    padding: 20px 0; 
+    border-bottom: 1px solid #f5f5f5; 
 }
 
 .contact-row:last-child { border-bottom: none; }
 
-.contact-label {
-    font-size: 10px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    color: #aaa;
+.contact-label { 
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600; 
+    font-size: 0.75rem; 
+    color: #aaa; 
+    text-transform: uppercase; 
+    letter-spacing: 3px;
 }
 
-.contact-value {
-    color: #333;
-    text-decoration: none;
+.contact-value { 
+    font-family: 'Amiri', serif;
+    color: #4A5568; 
+    text-decoration: none; 
+    font-size: 1.1rem; 
+    font-weight: 700;
+    transition: 0.3s;
+}
+
+.contact-value:hover { 
+    color: #ff85a2; /* Warna pink saat di-hover */
+    letter-spacing: 1px;
+}
+
+/* --- 8. MODAL --- */
+.modal {
+    display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    /* LATAR BELAKANG MODAL */
+    background: rgba(255,240,245,0.95);
+    z-index: 9999; justify-content: center; align-items: center;
+    padding: 40px;
+    /* PENGECERAH MODAL - KUNCI PENTING */
+    overflow-y: initial;
+}
+.modal-content {
+    max-width: 800px; width: 100%;
+    /* BOX BUKAN GULIR - RAPIH */
+    max-height: 90vh;
+    overflow-y: auto;
+    background: white; padding: 30px; border-radius: 8px; position: relative;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+#imgFull { width: 100%; max-height: 60vh; object-fit: contain; margin-bottom: 20px; }
+.art-info {
+    /* TEKS DI TENGAH MODAL */
+    text-align: center;
+}
+.close-btn { position: fixed; top: 20px; right: 30px; font-size: 40px; cursor: pointer; color: #333; z-index: 10000; }
+.close-btn:after { content: "\00d7"; }
+
+/* --- 9. ANIMASI FADE IN (TAMBAHKAN INI) --- */
+.fade-item {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.fade-item.appear {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* --- OVERLAY MERAH GELAP (Sesuai Screenshot 106) --- */
+.parallax-bg::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Merah sangat gelap (Hampir Hitam) dengan transparansi 50% */
+    background-color: rgba(40, 0, 0, 0.5); 
+    z-index: 2;
+}
+
+/* Pastikan Teks Muncul di Depan Overlay */
+.hero-text {
+    z-index: 3 !important;
+}
+
+/* Taruh di baris paling terakhir di style.css */
+
+.canva-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+.canva-list li {
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.canva-list li::before {
+    content: "●"; 
+    position: absolute;
+    left: 0;
+    color: #800000;
     font-size: 14px;
 }
 
-/* --- PERBAIKAN TOTAL: NO KOTAK BIRU, GAMBAR LEBAR, MEPET ATAS --- */
-/* --- PERBAIKAN TOTAL: NO KOTAK BIRU, GAMBAR LEBAR, TEKS RAPI --- */
-@media (max-width: 768px) {
-    /* 1. Judul Halaman */
-    .header-container {
-        height: auto !important;
-        margin-top: 80px !important; 
-        margin-bottom: 20px !important;
-        background: none !important; 
-    }
+.canva-list li strong {
+    display: block;
+    font-family: 'Amiri', serif;
+    font-size: 1.1rem;
+    color: #333;
+}
 
-    .purple-box {
-        display: none !important; 
-    }
-
-    .elegant-title {
-        font-size: 1.1rem !important;
-        letter-spacing: 8px !important;
-        color: #4A5568 !important;
-        text-align: center !important;
-        display: block !important;
-    }
-
-    /* 2. Gambar Hero (Binocchio) - Tetap Lebar & Utuh */
-    .hero-container {
-        height: auto !important;
-        margin-top: 70px !important;
-        display: block !important;
-    }
-
-    .parallax-bg {
-        position: relative !important;
-        width: 100% !important;
-    }
-
-    .parallax-bg img {
-        width: 100% !important; 
-        height: auto !important;
-        object-fit: cover !important; 
-        display: block !important;
-    }
-
-    /* --- INI PERBAIKAN TEKS JUMBO NYA --- */
-    .hero-text {
-        position: absolute !important;
-        top: 50% !important;
-        left: 50% !important;
-        transform: translate(-50%, -50%) !important;
-        width: 100%; /* Pastikan teks punya ruang */
-        padding: 0 20px;
-    }
-
-    .hero-text h1 {
-        font-size: 14px !important; /* Font diperkecil agar pas di HP */
-        letter-spacing: 3px !important; /* Jarak huruf dirapatkan dari 15px ke 3px */
-        line-height: 1.6 !important; /* Jarak baris agar tidak bertumpuk */
-        font-weight: 300;
-        text-shadow: 0 2px 10px rgba(0,0,0,0.5);
-    }
-    /* ------------------------------------ */
-
-    /* 3. Rapikan Jarak Konten Bawah */
-    .white-content-section {
-        padding: 30px 20px !important;
-        margin-top: 0 !important;
-    }
-
-    .contact-intro {
-        margin-top: 20px !important;
-        margin-bottom: 10px !important;
-    }
+.canva-list li span {
+    display: block;
+    font-size: 0.9rem;
+    color: #666;
+    font-style: italic;
+    margin-top: 2px;
 }

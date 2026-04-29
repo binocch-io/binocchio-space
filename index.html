@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@700&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>binocchio's space</title>
@@ -14,29 +15,30 @@
             <div class="bar"></div>
         </div>
         <div class="header-logo">
-            <h1>my space</h1>
+            <h1>binocchio</h1>
         </div>
         <div class="header-spacer"></div>
     </header>
 
     <nav id="sidebar" class="sidebar">
         <ul>
-            <li><a href="#" onclick="showSection('home-content')">Home</a></li>
+            <li><a href="#" onclick="showSection('home-content')">beranda</a></li>
             <li class="dropdown">
-                <a href="#">Artworks ▼</a>
+                <a href="#">karya ▼</a>
                 <ul class="submenu">
-                    <li><a href="#" onclick="showSection('painting')">Paintings</a></li>
-                    <li><a href="#" onclick="showSection('fanart')">Drawings</a></li>
+                    <li><a href="#" onclick="showSection('akrilik')">akrilik</a></li>
+                    <li><a href="#" onclick="showSection('cat-minyak')">minyak</a></li>
+                    <li><a href="#" onclick="showSection('gouache')">gouache</a></li>
                 </ul>
             </li>
-            <li><a href="#" onclick="showSection('commission')">Commission info</a></li>
+            <li><a href="#" onclick="showSection('kontak-section')">kontak</a></li>
         </ul>
     </nav>
 
     <main class="main-content" id="home-content">
         <div class="hero-container">
             <div class="parallax-bg">
-                <img src="landscape1.jpg" alt="Home Artwork">
+                <img src="header.jpeg" alt="Home Artwork">
             </div>
             <div class="hero-text">
                 <h1>ubah dinding kosongmu menjadi sudut penuh warna bersamaku</h1>
@@ -44,72 +46,104 @@
         </div>
 
         <div class="white-content-section">
-            <div class="content-wrapper">
-                <h2 class="elegant-header">Welcome to my space</h2>
-                <p>Scroll down to explore my artworks and projects.</p>
-                <div style="height: 60vh;"></div> </div>
+    <div class="about-container fade-item">
+        <div class="about-photo-column">
+            <img src="profil2.jpeg" alt="Profile Binocchio" class="profile-circle">
         </div>
+        <div class="about-text-column">
+            <h2 class="elegant-header">welcome to my space</h2>
+            <div class="description-text">
+                <p>Karya-karya saya berpusat pada eksplorasi ruang pribadi dan emosi yang terpendam. Sebagai seseorang yang cenderung pendiam, saya sering merasa sulit untuk menyuarakan apa yang saya rasakan secara langsung. Melalui goresan kuas dan cat akrilik, saya akhirnya menemukan keberanian untuk mengekspresikan narasi batin yang telah lama tertahan.</p>
+                <p>Proses kreatif saya merupakan perpaduan antara refleksi diri dan riset visual. Saya memulai setiap karya dengan mencatat kecemasan serta pikiran-pikiran meresahkan yang saya alami, lalu mengubahnya menjadi sketsa emosional. Saya memilih akrilik karena sifatnya yang cepat kering, yang sangat mendukung gaya lukisan saya yang ekspresif dan cenderung kasar.</p>
+                <p>Inspirasi terbesar saya datang dari keinginan untuk berbagi emosi. Bersamaan dengan karya-karya ini, sebuah pertanyaan selalu muncul: <strong>"Apakah ada orang lain yang merasakan hal yang sama?"</strong></p>
+            </div>
+        </div>
+    </div> <div class="experience-container fade-item">
+        <img src="profil.jpeg" class="profile-circle" alt="Foto Pengalaman"> 
+        <div class="about-text-column">
+<ul class="canva-list">
+    <li>
+        <strong>Mahasiswa Program Studi Seni Murni, Institut Seni Indonesia Yogyakarta</strong>
+        <span>2023 - Sekarang</span>
+    </li>
+    <li>
+        <strong>Realistic Painting Exhibition</strong>
+        <span>Galery Fajar Sidiq, ISI Yogyakarta | Seniman | Mei 2023</span>
+    </li>
+    <li>
+        <strong>Who Am I: Journey of Becoming</strong>
+        <span>Jogja Galleri | Seniman, Konten Strategi | Februari 2025</span>
+    </li>
+    <li>
+        <strong>[Pekan Rupa 4: Bintang Terang Bayangan Hilang]</strong>
+        <span>[Galeri R.J> Katamsi] | [Seniman] | [April 2026]</span>
+    </li>
+</ul>
+        </div>
+    </div> </div>
     </main>
 
-    <section id="painting" class="main-content" style="display:none;">
-        <div class="header-container">
-            <div class="purple-box"></div>
-            <h1 class="elegant-title">Paintings</h1>
+<section id="akrilik" class="main-content">
+    <div class="gallery-grid">
+        <div class="gallery-item fade-item">
+            <img src="art00.jpeg" onclick="openModal('art00.jpeg', 'Daydream', '2025 | Cat Akrilik di kanvas | 80 x 100 cm', 'Tersesat dalam lamunan, dihantui oleh bayangan dari satu pertanyaan: \'Siapakah aku?\' Karya ini mengeksplorasi perasaan terasing di tengah keramaian, di mana pikiran mengembara ke tempat yang jauh sementara tubuh tetap terpaku di tempat.')">
+            <p>Daydream</p>
         </div>
-        <div class="gallery-container">
-            <div class="gallery-item fade-item">
-                <img src="art0.jpg" alt="Art 0"><p>Beyond Me</p>
-            </div>
-            <div class="gallery-item fade-item">
-                <img src="art1.jpg" alt="Art 1"><p>Universal Vision</p>
-            </div>
-            <div class="gallery-item fade-item">
-                <img src="art2.jpg" alt="Art 2"><p>Masked Journey</p>
-            </div>
-            <div class="gallery-item fade-item">
-                <img src="art3.jpg" alt="Art 3"><p>Hidden Truth</p>
-            </div>
-            <div class="gallery-item fade-item">
-                <img src="art4.jpg" alt="Art 4"><p>Eternal Balance</p>
-            </div>
-        </div>
-    </section>
 
-    <section id="fanart" class="main-content" style="display:none;">
-        <div class="header-container">
-            <div class="purple-box"></div>
-            <h1 class="elegant-title split-title">
-                <span>fan art</span>
-                <span class="dot">•</span>
-                <span>potrait</span>
-                <span class="dot">•</span>
-                <span>study</span>
-            </h1>
+        <div class="gallery-item fade-item">
+            <img src="art0.jpg" onclick="openModal('art0.jpg', 'Beyond Me', '2025 | Cat Akrilik di kanvas | 60 x 80 cm', 'Sebuah refleksi dari pergulatan batin saat menyaksikan kesuksesan orang lain. Ada rasa kagum yang bercampur dengan kecemasan tentang posisi diri sendiri di dunia ini.')">
+            <p>Beyond Me</p>
         </div>
-        <div class="gallery-container">
-            <div class="gallery-item fade-item">
-                <img src="fanart1.jpg" alt="Fanart 1"><p>Character Study 1</p>
-            </div>
-            <div class="gallery-item fade-item">
-                <img src="fanart2.jpg" alt="Fanart 2"><p>Character Study 2</p>
-            </div>
-            <div class="gallery-item fade-item">
-                <img src="fanart3.jpg" alt="Fanart 3"><p>Character Study 3</p>
-            </div>
-            <div class="gallery-item fade-item">
-                <img src="fanart4.jpg" alt="Fanart 4"><p>Character Study 4</p>
-            </div>
-            <div class="gallery-item fade-item">
-                <img src="repro1.jpg" alt="repro 1"><p>Character Study 5</p>
-            </div>
-            <div class="gallery-item fade-item">
-                <img src="repro2.jpg" alt="repro 2"><p>Character Study 6</p>
-            </div>
-        </div>
-    </section>
 
-    <section id="commission" class="main-content" style="display:none;">
-<h1 class="elegant-title">contact</h1>
+        <div class="gallery-item fade-item">
+            <img src="art2.jpeg" onclick="openModal('art2.jpeg', 'Letih', '2025 | Cat Akrilik di kanvas | 60 x 80 cm', 'Untuk mereka yang tak pernah berhenti.')">
+            <p>Letih</p>
+        </div>
+
+        <div class="gallery-item fade-item">
+            <img src="art1.jpg" onclick="openModal('art1.jpg', 'Raja yang Terdistorsi', '2025 | Cat Akrilik di kanvas | 80 x 80 cm', 'Manifestasi dari persepsi yang hancur tentang figur ayah. Bagaimana otoritas dan perlindungan bisa berubah menjadi sesuatu yang membingungkan dan tidak berbentuk dalam ingatan.')">
+            <p>Raja yang Terdistorsi</p>
+        </div>
+
+        <div class="gallery-item fade-item">
+            <img src="art3.jpg" onclick="openModal('art3.jpg', '404: Jalan Tidak Ditemukan', '2025 | Cat Akrilik di kanvas | 60 x 100 cm', 'Karya ini lahir dari kecemasan akan infrastruktur yang runtuh dan arah hidup yang tidak menentu. Saat semua tanda penunjuk jalan hilang, kita dipaksa untuk mencari jalan kita sendiri.')">
+            <p>404: Jalan Tidak Ditemukan</p>
+        </div>
+
+        <div class="gallery-item fade-item">
+            <img src="art4.jpg" onclick="openModal('art4.jpg', 'Subject No.0', '2025 | Cat Akrilik di kanvas | 60 x 80 cm', 'Karya ini menggambarkan sesosok figur dengan kepala terbungkus kantong kertas, sebuah metafora bagi mereka yang hidup dalam kedangkalan intelektual atau mereka yang memilih untuk menyembunyikan identitas aslinya demi diterima oleh lingkungan.')">
+            <p>Subject No.0</p>
+        </div>
+    </div>
+</section>
+
+<section id="cat-minyak" class="main-content">
+    <div class="gallery-grid">
+        <div class="gallery-item fade-item">
+            <img src="repro2.jpg" alt="Rembrandt" onclick="openModal('repro2.jpg', 'Studi Karya Rembrandt: Potret Diri', '2024 | Cat Minyak di Kanvas | 50 x 60 cm', 'Latihan teknik chiaroscuro.')">
+            <p>studi karya rembrandt: potret diri</p>
+        </div>
+        <div class="gallery-item fade-item">
+            <img src="repro1.jpg" alt="Morning Sun" onclick="openModal('repro1.jpg', 'Studi Morning Sun - Basoeki Abdullah', '2024 | Cat Minyak di Kanvas | 80 x 100 cm', 'Studi pencahayaan alami.')">
+            <p>studi morning sun - Basoeki Abdullah</p>
+        </div>
+    </div>
+</section>
+
+<section id="gouache" class="main-content">
+    <div class="gallery-grid">
+        <div class="gallery-item fade-item">
+            <img src="fanart1.jpg" alt="Spiderman" onclick="openModal('fanart1.jpg', 'Frame dari The Amazing Spiderman', '2023 | Gouache di Kertas', 'Eksperimen warna dan anatomi.')">
+            <p>Frame dari The Amazing Spiderman</p>
+        </div>
+        <div class="gallery-item fade-item">
+            <img src="fanart3.jpg" alt="Fireflies" onclick="openModal('fanart3.jpg', 'Frame dari Grave of the Fireflies', '2023 | Gouache di Kertas', 'Menangkap suasana emosional film Ghibli.')">
+            <p>Frame dari Grave of the Fireflies</p>
+        </div>
+    </div>
+</section>
+
+    <section id="kontak-section" class="main-content">
         <div class="contact-card-container fade-item">
             <p class="contact-intro">Feel free to reach out through any of these platforms:</p>
             <div class="contact-details-box">
@@ -129,65 +163,89 @@
         </div>
     </section>
 
+    <div id="artModal" class="modal" onclick="closeModal()">
+        <span class="close-btn" onclick="closeModal()"></span> 
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <img id="imgFull" src="" alt="">
+            <div class="art-info">
+                <h2 id="artTitle"></h2>
+                <p id="artMeta" style="font-style: italic; color: #888; font-size: 0.85rem; margin-bottom: 15px; letter-spacing: 1px;"></p>
+                <p id="artDescription"></p>
+            </div>
+        </div>
+    </div>
+
 <script>
-    function toggleSidebar() {
-        document.getElementById('sidebar').classList.toggle('active');
-    }
-
-    function showSection(id) {
-        // Sembunyikan semua section
-        const sections = ['home-content', 'painting', 'fanart', 'commission'];
-        sections.forEach(sec => document.getElementById(sec).style.display = 'none');
-
-        // Tampilkan yang diklik
-        const target = document.getElementById(id);
-        if (target) {
-            target.style.display = 'block';
+        // 1. FUNGSI SIDEBAR
+        function toggleSidebar() {
+            var sb = document.getElementById('sidebar');
+            if (sb) sb.classList.toggle('active');
         }
-        
-        window.scrollTo(0, 0);
 
-        // Tutup sidebar
-        const sidebar = document.getElementById('sidebar');
-        if(sidebar.classList.contains('active')) toggleSidebar();
-
-        // Pancing ulang pengintai gambar
-        initObserver();
-    }
-
-    // FUNGSI PENGINTAI GAMBAR (OBSERVER)
-function initObserver() {
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                // Saat gambar masuk layar
-                entry.target.classList.add('visible');
-            } else {
-                // SAAT GAMBAR KELUAR LAYAR (Hapus ini jika ingin sekali saja)
-                entry.target.classList.remove('visible');
+        // 2. FUNGSI PINDAH HALAMAN
+        function showSection(id) {
+            var sections = document.querySelectorAll('.main-content');
+            sections.forEach(function(sec) {
+                sec.style.display = 'none';
+            });
+            var target = document.getElementById(id);
+            if (target) {
+                target.style.display = 'block';
             }
-        });
-    }, { 
-        threshold: 0.1,
-        rootMargin: "0px 0px -50px 0px" // Memberi jeda sedikit agar tidak langsung hilang
-    });
+            var sidebar = document.getElementById('sidebar');
+            if (sidebar) sidebar.classList.remove('active');
+            
+            // Trigger ulang animasi fade saat pindah kategori
+            window.scrollTo(0, 0);
+            handleScrollFade(); 
+        }
 
-    document.querySelectorAll('.fade-item').forEach(item => {
-        observer.observe(item);
-    });
-}
+        // 3. FUNGSI MODAL
+        function openModal(s, t, m, d) {
+            var modal = document.getElementById('artModal');
+            if (modal) {
+                modal.style.display = "flex";
+                document.getElementById('imgFull').src = s;
+                document.getElementById('artTitle').innerText = t;
+                document.getElementById('artMeta').innerText = m;
+                document.getElementById('artDescription').innerText = d;
+                document.body.style.overflow = 'hidden';
+            }
+        }
 
-    // Jalankan saat pertama kali web dibuka
-    window.addEventListener('DOMContentLoaded', initObserver);
+        function closeModal() {
+            var modal = document.getElementById('artModal');
+            if (modal) {
+                modal.style.display = "none";
+                document.body.style.overflow = '';
+            }
+        }
 
-    // Efek kotak ungu (tetap pakai scroll biasa)
-    window.addEventListener('scroll', () => {
-        const boxes = document.querySelectorAll('.purple-box');
-        boxes.forEach(box => {
-            if (window.scrollY > 50) box.classList.add('fade-out');
-            else box.classList.remove('fade-out');
-        });
-    });
-</script>
+        // 4. EFEK FADE IN (OTAK ANIMASI)
+        function handleScrollFade() {
+            const faders = document.querySelectorAll('.fade-item');
+            const appearOptions = {
+                threshold: 0.1,
+                rootMargin: "0px 0px -50px 0px"
+            };
+
+            const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+                entries.forEach(entry => {
+                    if (!entry.isIntersecting) return;
+                    entry.target.classList.add('appear');
+                    appearOnScroll.unobserve(entry.target);
+                });
+            }, appearOptions);
+
+            faders.forEach(fader => {
+                appearOnScroll.observe(fader);
+            });
+        }
+
+        window.onload = function() {
+            showSection('home-content');
+            handleScrollFade();
+        };
+    </script>
 </body>
 </html>
