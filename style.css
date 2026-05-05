@@ -1,15 +1,5 @@
 /* --- 1. RESET & DASAR --- */
-* /* Hilangkan kotak biru saat klik di HP */
-* {
-    -webkit-tap-highlight-color: transparent;
-}
-
-/* Dan pastikan di modal content juga tidak ada outline */
-.modal-content:focus {
-    outline: none;
-    -webkit-tap-highlight-color: transparent;
-}
-{ margin: 0; padding: 0; box-sizing: border-box; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #F5F5F0; color: #333; overflow-x: hidden;

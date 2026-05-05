@@ -269,6 +269,15 @@
         showSection('home-content');
         handleScrollFade();
     };
+
+    // AUTO-CLOSE SIDEBAR SAAT SCROLL
+window.addEventListener('scroll', function() {
+    var sb = document.getElementById('sidebar');
+    // Jika sidebar sedang aktif (terbuka), maka tutup
+    if (sb && sb.classList.contains('active')) {
+        sb.classList.remove('active');
+    }
+});
 </script>
 </body>
 </html>
