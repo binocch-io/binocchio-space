@@ -1,8 +1,17 @@
-/* --- 1. RESET & DASAR --- */
-* { margin: 0; padding: 0; box-sizing: border-box; }
+* /* --- 1. RESET & DASAR --- */
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+    /* Baris sakti buat hapus kotak biru di HP */
+    -webkit-tap-highlight-color: transparent; 
+}
+
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #F5F5F0; color: #333; overflow-x: hidden;
+    background-color: #F5F5F0; 
+    color: #333; 
+    overflow-x: hidden;
 }
 
 /* --- 2. HEADER --- */
