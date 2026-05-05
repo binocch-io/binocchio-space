@@ -278,6 +278,20 @@ window.addEventListener('scroll', function() {
         sb.classList.remove('active');
     }
 });
+
+// KLIK DI MANA SAJA UNTUK MENUTUP SIDEBAR
+document.addEventListener('click', function(event) {
+    var sb = document.getElementById('sidebar');
+    var menuBtn = document.querySelector('.menu-btn');
+
+    // Cek apakah sidebar sedang aktif
+    if (sb && sb.classList.contains('active')) {
+        // Jika yang diklik BUKAN sidebar DAN bukan tombol menu, maka tutup
+        if (!sb.contains(event.target) && !menuBtn.contains(event.target)) {
+            sb.classList.remove('active');
+        }
+    }
+});
 </script>
 </body>
 </html>
