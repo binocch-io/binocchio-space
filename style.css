@@ -486,3 +486,15 @@ body {
         background-color: rgba(0, 0, 0, 0.4) !important;
     }
 }
+
+/* KHUSUS TAMPILAN HP */
+@media screen and (max-width: 768px) {
+    #home-content h2, 
+    .welcome-text, 
+    #home-content h1 { 
+        text-align: center !important;
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
