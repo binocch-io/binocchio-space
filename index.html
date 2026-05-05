@@ -279,18 +279,20 @@ window.addEventListener('scroll', function() {
     }
 });
 
-// KLIK DI MANA SAJA UNTUK MENUTUP SIDEBAR
-document.addEventListener('click', function(event) {
-    var sb = document.getElementById('sidebar');
-    var menuBtn = document.querySelector('.menu-btn');
+// FITUR: KLIK/SENTUH DI MANA SAJA UNTUK MENUTUP SIDEBAR
+['click', 'touchstart'].forEach(function(eventType) {
+    document.addEventListener(eventType, function(event) {
+        var sb = document.getElementById('sidebar');
+        var menuBtn = document.querySelector('.menu-btn');
 
-    // Cek apakah sidebar sedang aktif
-    if (sb && sb.classList.contains('active')) {
-        // Jika yang diklik BUKAN sidebar DAN bukan tombol menu, maka tutup
-        if (!sb.contains(event.target) && !menuBtn.contains(event.target)) {
-            sb.classList.remove('active');
+        // Jika sidebar sedang terbuka
+        if (sb && sb.classList.contains('active')) {
+            // Cek apakah yang disentuh/diklik itu BUKAN sidebar dan BUKAN tombol menu
+            if (!sb.contains(event.target) && !menuBtn.contains(event.target)) {
+                sb.classList.remove('active');
+            }
         }
-    }
+    }, { passive: true }); // Passive true biar scroll HP tetap lancar
 });
 </script>
 </body>
